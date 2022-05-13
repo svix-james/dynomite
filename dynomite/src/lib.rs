@@ -985,7 +985,7 @@ macro_rules! attr_map {
     ($($key:expr => $value:expr),*) => {
         {
             let _cap = $crate::attr_map!(@count $($key),*);
-            let mut _map: ::std::collections::HashMap<String, ::dynomite::dynamodb::model::AttributeValue> =
+            let mut _map: ::std::collections::HashMap<String, ::aws_sdk_dynamodb::model::AttributeValue> =
               ::std::collections::HashMap::with_capacity(_cap);
               {
                   use ::dynomite::Attribute;
@@ -1149,11 +1149,11 @@ mod test {
     // #[test]
     // fn numeric_into_attr() {
     //     assert_eq!(
-    //         serde_json::to_string(&1u32.into_attr() ).unwrap(),
+    //         serde_json::to_string(&1u32.into_attr()).unwrap(),
     //         r#"{"N":"1"}"#
     //     );
     // }
-    //
+    // //
     // #[test]
     // fn numeric_from_attr() {
     //     assert_eq!(
